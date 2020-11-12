@@ -140,6 +140,7 @@
 	Switch# show int trunk
 	Switch# show int (interface) switchport
 	Switch# show dtp
+	Switch# show int g0/2 switchport
 	
 	Initialize and Reload
 	Switch#delete vlan.dat
