@@ -37,7 +37,7 @@ Switch Configuration
 	Switch(config)#service password-encryption
  	Switch(config)#exit
 
-Create a banner that warns anyone accessing the device that unauthorized access is prohibited.
+	Create a banner that warns anyone accessing the device that unauthorized access is prohibited.
 	Switch(config)#banner modt #
 
 	Copy the running configuration to the startup configuration.
@@ -90,7 +90,7 @@ Create a banner that warns anyone accessing the device that unauthorized access 
 
 	Mac address configuration
 	Switch# clear mac address-table dynamic
-Switch(config)# mac address-table static 0050.56BE.6C89 vlan 99 interface fastethernet 0/6
+	Switch(config)# mac address-table static 0050.56BE.6C89 vlan 99 interface fastethernet 0/6
 
 	Assign all users to a vlan
 	Switch(config)#interface range f0/1-24,g01-2
