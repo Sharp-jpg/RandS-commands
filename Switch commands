@@ -43,15 +43,6 @@ Switch Configuration
 	Copy the running configuration to the startup configuration.
 	Switch# copy run start
 
-	Show NVRAM 
-	Switch#show flash
-	Switch#dir flash:
-
-	Show vlan information.
-	Switch#show vlan (brief)
-	Switch#show int vlan1
-	Switch#show ip int vlan1
-
 	Configure VLAN 1.
 	Switch(config)#int VLAN1
 	Switch(config-if)#description 'this is the description'
@@ -82,25 +73,32 @@ Switch Configuration
 	Switch(config)#line con 0
 	Switch(config-line)#logging synchronous
 
-	Mac address information
-	Switch#show mac address-table
-	Switch#show mac address-table dynamic
-	Switch#show mac address-table static
-	Switch#show mac address-table address xxxx.xxxx.xxxx
-
 	Mac address configuration
 	Switch# clear mac address-table dynamic
 	Switch(config)# mac address-table static 0050.56BE.6C89 vlan 99 interface fastethernet 0/6
+	
+	Create vlans
+	Switch(config)# vlan 10
+	Switch(config-vlan)# name (name)
+	
+	Create vlan on the fly and delete vlan
+	Switch(config)# int f0/1
+	Switch(config-if)# switchoprt access vlan 30
+	Switch(config)# no vlan 30
+	
+	Assign interface to vlan
+	Switch(config)# int f0/6
+	Switch(config-if)# switchport mode access
+	Switch(config-if)# switchport access vlan 10
 
 	Assign all users to a vlan
 	Switch(config)#interface range f0/1-24,g01-2
 	Switch(config)#switchport access vlan 99
-
-	Initialize and Reload
-	Switch#show flash
-	Switch#delete vlan.dat
-	Switch#erase startup-config
-	Switch#reload
+	
+	Configure trunking
+	Switch(config)# int range g0/1-2
+	Switch(config-if)# switchport mode trunk
+	Switch(config-if)# switchport trunk native vlan 99
 
 	Disable DTP negotiation
 	Switch(config)# interface g0/2
@@ -112,7 +110,6 @@ Switch Configuration
 	Switch# show startup-config | section vty
 	Switch# show version
 	Switch# show version | include register
-	Switch# show flash
 	Switch# show mac address-table
 	Switch# show mac address-table dynamic
 	Switch# show mac address-table static
@@ -123,3 +120,12 @@ Switch Configuration
 	Switch# show ip route
 	Switch# show ip int brief
 	Switch# show ipv6 int brief
+	Switch# show flash
+	Switch# dir flash:
+	Switch# show int trunk
+	Switch# show int (interface) switchport
+	
+	Initialize and Reload
+	Switch#delete vlan.dat
+	Switch#erase startup-config
+	Switch#reload
