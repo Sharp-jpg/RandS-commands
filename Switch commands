@@ -107,8 +107,13 @@ Switch Configuration
 	Switch(config-if)# switchport mode trunk
 	Switch(config-if)# switchport nonegotiate
 	
-	
-	
-
-	
-
+	Useful show commands
+	Switch# show version
+	Switch# show flash
+	Switch#show mac address-table
+	Switch#show mac address-table dynamic
+	Switch#show mac address-table static
+	Switch#show mac address-table address xxxx.xxxx.xxxx
+	Switch#show vlan (brief)
+	Switch#show int vlan1
+	Switch#show ip int vlan1
