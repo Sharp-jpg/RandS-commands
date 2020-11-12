@@ -1,4 +1,4 @@
-Switch Configuration
+	Switch Configuration
 
 
 
@@ -95,10 +95,22 @@ Switch Configuration
 	Switch(config)#interface range f0/1-24,g01-2
 	Switch(config)#switchport access vlan 99
 	
+	Change native vlan for an interface
+	Switch(config)# interface f0/1
+	Switch(config-if)# switchport trunk native vlan 1000
+	
 	Configure trunking
 	Switch(config)# int range g0/1-2
 	Switch(config-if)# switchport mode trunk
 	Switch(config-if)# switchport trunk native vlan 99
+	
+	Set interface to negotiate trunk mode
+	Switch(config)# int f0/1
+	Switch(config-if)# switchport mode dynamic desirable
+	
+	Manually configure a port as a trunk, done on both ends
+	Switch(config)# int f0/1
+	Switch(config-if)# switchport mode trunk
 
 	Disable DTP negotiation
 	Switch(config)# interface g0/2
