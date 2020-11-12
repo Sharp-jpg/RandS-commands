@@ -139,6 +139,7 @@
 	Switch# dir flash:
 	Switch# show int trunk
 	Switch# show int (interface) switchport
+	Switch# show dtp
 	
 	Initialize and Reload
 	Switch#delete vlan.dat
