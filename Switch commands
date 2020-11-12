@@ -5,11 +5,14 @@
 	Console into the switch and enable privileged EXEC mode.
 	Switch>enable
 	Switch#
+	
+	Enter global configuration mode
+	Switch# conf t
+	Switch(config)#
 
 	Assign a device name to the switch.
-	Switch# config t
-	Switch (config)# hostname (name)
-	(name)(config)# exit
+	Switch(config)# hostname (name)
+	(name)(config)# 
 
 	Disable DNS lookup.
 	Switch(config)# no dns lookup
