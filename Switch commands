@@ -86,7 +86,7 @@
 	
 	Create vlan on the fly and delete vlan
 	Switch(config)# int f0/1
-	Switch(config-if)# switchoprt access vlan 30
+	Switch(config-if)# switchport access vlan 30
 	Switch(config)# no vlan 30
 	
 	Assign interface to vlan
