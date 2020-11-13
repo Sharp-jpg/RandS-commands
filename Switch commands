@@ -107,11 +107,11 @@
 	Switch(config-if)# switchport mode trunk
 	Switch(config-if)# switchport trunk native vlan 99
 	
-	Set interface to negotiate trunk mode
+	Set interface to negotiate trunk mode (dynamic)
 	Switch(config)# int f0/1
 	Switch(config-if)# switchport mode dynamic desirable
 	
-	Manually configure a port as a trunk, done on both ends
+	Statically configure a port as a trunk, done on both ends
 	Switch(config)# int f0/1
 	Switch(config-if)# switchport mode trunk
 
