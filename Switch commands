@@ -40,7 +40,7 @@
 	Switch(config)#service password-encryption
  	Switch(config)#exit
 
-	Create a banner that warns anyone accessing the device that unauthorized access is prohibited.
+	Create a banner that warns anyone accessing the device 
 	Switch(config)#banner modt #
 
 	Copy the running configuration to the startup configuration.
