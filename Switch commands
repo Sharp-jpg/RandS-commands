@@ -102,11 +102,6 @@
 	Switch(config)# interface f0/1
 	Switch(config-if)# switchport trunk native vlan 1000
 	
-	Configure trunking
-	Switch(config)# int range g0/1-2
-	Switch(config-if)# switchport mode trunk
-	Switch(config-if)# switchport trunk native vlan 99
-	
 	Set interface to negotiate trunk mode (dynamic)
 	Switch(config)# int f0/1
 	Switch(config-if)# switchport mode dynamic desirable
