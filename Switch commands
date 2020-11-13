@@ -120,6 +120,11 @@
 	Switch(config-if)# switchport mode trunk
 	Switch(config-if)# switchport nonegotiate
 	
+	Assign voice vlan to interface
+	Switch(config)# int f0/11
+	Switch(config-if)# msl qos trust cos
+	Switch(config-if)# switchport voice vlan 150
+	
 	Useful show commands
 	Switch# show startup-config
 	Switch# show startup-config | section vty
