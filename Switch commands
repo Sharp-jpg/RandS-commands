@@ -122,7 +122,7 @@
 	
 	Assign voice vlan to interface
 	Switch(config)# int f0/11
-	Switch(config-if)# msl qos trust cos
+	Switch(config-if)# mls qos trust cos
 	Switch(config-if)# switchport voice vlan 150
 	
 	Useful show commands
