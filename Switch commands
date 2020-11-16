@@ -146,3 +146,6 @@
 	Switch#delete vlan.dat
 	Switch#erase startup-config
 	Switch#reload
+	
+	Set the clock
+	Switch#clock set [hh:mm:ss] [oct] [day] [2006]
