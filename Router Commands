@@ -2,3 +2,112 @@ Configure subinterfaces using 802.1Q encapsulation
 R1(config)# int g0/0.10
 R1(config-subif)# encapsulation dot1Q 10
 R1(config-subif)# ip address 172.17.10.1 255.255.255.0
+
+Basic Router Configuration
+
+ Console into the Router and enable privileged EXEC mode.
+o Router&gt;enable
+o Router#
+ Assign a device name to the Router.
+o Router# config t
+o Router (config)# hostname “Name of Router”
+o “Name of Router”(config)# exit
+ Disable DNS lookup.
+o Router(config)# no dns lookup (or)
+o Router(config)# no ip domain-lookup
+ Assign class as the privileged EXEC encrypted password.
+o Router(config)#enable password class
+o Router(config)#exit
+ Assign cisco as the console password and enable login.
+o Router(config)# line console 0
+o Router(config-line)# password cisco
+o Router(config-line)# login
+o Router(config-line)#exit
+o Router(config)#exit
+ Assign cisco as the VTY password and enable login.
+o Router(config)# Line vty 0 4 or 0 15
+o Router(config-line)# Password cisco
+o Router(config-line)# login
+ Configure an encrypted password to secure access to privileged mode
+o Router(config)#enable secret class
+o Router(config)#exit
+ Encrypt the plaintext passwords.
+o Router(config)#service password-encryption
+o Router(config)#exit
+ Create a banner that warns anyone accessing the device that unauthorized access is
+prohibited.
+o Router(config)#banner modt “Unauthorized Access is Prohibited”
+ Copy the running configuration to the startup configuration.
+o Router# copy run start
+ Setting an IP Address (IPv4)
+o Router# config t
+o Router (config)#int fa0/1
+o Router (config)#ip address 172.16.1.1 255.255.0.0
+o Router (config)#description LAN_A
+o Router (config)#no shutdown
+
+o Router (config)#exit or end
+ Save the startup configuration file to flash
+o Router# show flash
+o Router# copy startup-config flash
+o Router# show flash
+ Copy the running configuration to the startup configuration.
+o Router# copy run start
+ Setting an IP Address(IPv6)
+o Router# config t
+o Router (config)#int fa0/1
+o Router (config-if)#ipv6 address 2001:db8:1:1::1/64
+o  Router (config-if)# ipv6 address fe80::1 link-local 
+o Router (config-if)#ipv6 enable
+o Router (config-if)#exit
+o Router (config)#ipv6 unicast-routing
+ Configuring the Router Table (Router Rip)
+o Router# config t
+o Router# router rip
+o Router# Version 2
+o Router# Network 192.168.1.0
+o Router# no auto-summary
+o Router#end
+ Configuring the Router Table (EIGRP)
+o Router# config t
+o Router# router eigrp 109
+o Router# Network 192.168.1.0
+o Router#end
+ Save the startup configuration file to flash
+o Router# show flash
+o Router# copy startup-config flash
+o Router# show flash
+ Configure the domain for the device
+o Router# config t
+o Router(config)# ip domain-name “ccna-lab.com”
+ Configure the domain for the device
+o Router# config t
+o Router(config)# ip domain-name “ccna-lab.com”
+o Router(config)#exit
+ Configure the encryption key method
+o Router# config t
+o Router (config)# crypto key generate rsa modulus 1024
+o Exit
+ Configure a local database username
+o Router# config t
+
+o Router (config) username”admin” secret “Adm1np@55”
+ Enable SSH on the VTY lines
+o Router# config t
+o Router(config) line vty 0 4
+o Router(config-line) transport input ssh
+o Router(config-line) login local
+ Verify unused ports are shutdown
+o Router# show ip interface brief
+ To show the log in
+o Router# show login
+ To set minimum password length
+o Router# config t
+o Router(config)# security password min-length ??
+ Log in block
+o Router# config t
+o Router(config) login block-for ??? attempts ? within ???
+ Set Exec mode timeout on the VTY lines
+o Router# config t
+o Router(config)# line vty 0 4
+o Router(config-line) exec-timeout (# of minutes)
