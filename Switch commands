@@ -120,6 +120,26 @@
 	Switch(config-if)# mls qos trust cos
 	Switch(config-if)# switchport voice vlan 150
 	
+	Etherchannel
+	Switch(config)# int range f0/21-22
+	Switch(config-if-range)# channel-group 1 mode desirable
+	Swwitch(config)# int port-channel 1
+	Switch(config-if)# switchport mode trunk
+	Switch(config)# int ra g0/1-2
+	Switch(config-if-range)# shutdown
+	Switch(config-if-range)# channel-group 2 mode active
+	Switch(config-if-range)# no shutdown
+	Switch(config-if-range)# interface port-channel 2
+	Switch(config-if)# switchport mode trunk
+	Switch(config)# int ra f0/23-24
+	Switch(config-if-range)#shutdown
+	Switch(config-if-range)# channel-group 3 mode passive
+	Switch(config-if-range)# no shutdown
+	Switch(config-if-range)# int port-channel 3
+	Switch(config-if)# switchport mode trunk
+	Switch(config)# spanning-tree vlan 1 root primary
+	Switch(config)# spanning-tree vlan 1 priority 24576
+	
 	Useful show commands
 	Switch# show startup-config
 	Switch# show startup-config | section vty
@@ -141,7 +161,10 @@
 	Switch# show int (interface) switchport
 	Switch# show dtp
 	Switch# show int g0/2 switchport
+	Switch# show spanning-tree
 	Switch# show spanning-tree vlan 1
+	Switch# show spanning-tree active
+	Switch# show etherchannel summary
 	
 	Initialize and Reload
 	Switch#delete vlan.dat
