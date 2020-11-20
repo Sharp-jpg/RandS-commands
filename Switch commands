@@ -141,6 +141,7 @@
 	Switch# show int (interface) switchport
 	Switch# show dtp
 	Switch# show int g0/2 switchport
+	Switch# show spanning-tree vlan 1
 	
 	Initialize and Reload
 	Switch#delete vlan.dat
