@@ -113,14 +113,14 @@ o Router(config)# line vty 0 4
 o Router(config-line) exec-timeout (# of minutes)
   
   DHCP
-  Router(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.10
-  Router(config)# ip dhcp pool R1-LAN
-  Router(dhcp-config)# network 192.168.10.0 255.255.255.0
-  Router(dhcp-config)# default-router 192.168.10.1
-  Router(dhcp-config)# dns-server 192.168.20.254
-  Router(config)# int g0/0
-  Router(config-if)# ip helper-address 10.1.1.2
-  Router(config)# int g0/1
-  Router(config-if)# ip address dhcp
-  Router(config-if)# no shutdown
+  Router2(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.10
+  Router2(config)# ip dhcp pool R1-LAN
+  Router2(dhcp-config)# network 192.168.10.0 255.255.255.0
+  Router2(dhcp-config)# default-router 192.168.10.1
+  Router2(dhcp-config)# dns-server 192.168.20.254
+  Router1(config)# int g0/0
+  Router1(config-if)# ip helper-address 10.1.1.2
+  Router1(config)# int g0/1
+  Router1(config-if)# ip address dhcp
+  Router1(config-if)# no shutdown
   Router# show ip dhcp binding
