@@ -124,3 +124,10 @@ o Router(config-line) exec-timeout (# of minutes)
   Router1(config-if)# ip address dhcp
   Router1(config-if)# no shutdown
   Router# show ip dhcp binding
+  
+  HSRP configuration
+  Router# int g0/1
+  Router(config-if)# standby version 2
+  Router(config-if)# standby 1 ip 192.168.1.254
+  Router(config-if)# standby 1 priority 150
+  Router(config-if)# 1 preempt
